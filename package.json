@@ -1,0 +1,53 @@
+{
+  "name": "kaleido-ember",
+  "version": "0.0.1",
+  "description": "HTML Kaleido overlay with control from E.G. VSM via Ember protocol",
+  "main": "src/server/index.ts",
+  "author": "olzzon <github@olzzon.dk>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "node-emberplus": "^3.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io": "^4.5.3",
+    "socket.io-client": "^4.5.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "css-loader": "^6.7.3",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.2",
+    "nodemon": "^2.0.20",
+    "pkg": "^5.8.0",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.9.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  },
+  "scripts": {
+    "build-server": "tsc -p ./src/server",
+    "build-client": "webpack --config webpack.client.config.js",
+    "watch-client": "webpack --progress --config webpack.client.config.js",
+    "start": "ts-node-dev src/server/index.ts",
+    "start-dev": "node --inspect -r ts-node/register src/server/index.ts",
+    "package": "pkg ."
+  },
+  "bin": {
+    "server": "./dist/server/index.js"
+  },
+  "pkg": {
+    "scripts": "./dist/server/index.js",
+    "assets": "./dist/client/**/*",
+    "targets": [
+      "node16-macos-arm64",
+      "node16-linux-x64"
+    ],
+    "outputPath": "package"
+  }
+}
