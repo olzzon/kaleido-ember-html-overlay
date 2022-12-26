@@ -6,11 +6,11 @@ const path = require("path");
 import * as IO from "../sharedcode/IO_CONSTANTS";
 import { ISource } from "../sharedcode/interfaces";
 import { getSettings } from "./utils/storage";
-import { emberServer, getEmberState, handleEmberServer } from "./emberserver";
+import { HandleEmberServer } from "./emberserver";
 
 let sources: ISource[] = getSettings();
 
-handleEmberServer(sources);
+const handleEmberServer = new HandleEmberServer(sources);
 
 app.use("/", express.static(path.resolve(__dirname, "../../dist/client")));
 app.get("/", (req: any, res: any) => {
@@ -22,7 +22,7 @@ io.on("connection", (socket: any) => {
   console.log("User connected :", socket.id);
   const sendSources = () => {
     sources = getSettings();
-    const emberLabelAndTally = getEmberState();
+    const emberLabelAndTally = handleEmberServer.getEmberState();
     emberLabelAndTally.forEach((labelTally, index) => {
       sources[index].label[0].label = labelTally.label[0];
       sources[index].label[1].label = labelTally.label[1];

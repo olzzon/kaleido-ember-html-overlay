@@ -36,6 +36,7 @@
     "watch-client": "webpack --progress --config webpack.client.config.js",
     "start": "ts-node-dev src/server/index.ts",
     "start-dev": "node --inspect -r ts-node/register src/server/index.ts",
+    "start-break": "node --inspect-brk -r ts-node/register src/server/index.ts",
     "package": "pkg ."
   },
   "bin": {
