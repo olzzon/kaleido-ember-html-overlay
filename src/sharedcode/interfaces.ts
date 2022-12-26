@@ -4,11 +4,14 @@ export interface ILabeledSource {
   positionY: number;
   width: number;
   height: number;
-  color: string;
-  backgroundColor: string;
-  tallyIndex: number;
+  color?: string;
+  backgroundColor?: string;
+  tallyIndex?: number;
 }
-
+export interface ITally {
+  tally: boolean;
+  color: string;
+}
 export interface ISource {
   label: ILabeledSource[];
   positionX: number;
@@ -18,10 +21,6 @@ export interface ISource {
   tally: ITally[];
 }
 
-export interface ITally {
-  tally: boolean;
-  color: string;
-}
 
 export interface IEmberLabelAndTally {
   label: string[];

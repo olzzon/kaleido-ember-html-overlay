@@ -30,7 +30,7 @@ export class HandleEmberServer {
       });
   }
 
-  getEmberState = () => {
+  getEmberState = (): IEmberLabelAndTally[] => {
     const tree = this.emberServer.toJSON();
     let emberLabelAndTally: IEmberLabelAndTally[] =
       tree[0].children[1].children.map((child: any) => {
