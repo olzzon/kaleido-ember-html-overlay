@@ -21,8 +21,8 @@ export interface ISource {
   tally: ITally[];
 }
 
-
-export interface IEmberLabelAndTally {
+export interface ILabelAndTallyState {
+  identifier: string;
   label: string[];
   tally: boolean[];
-}
+}  

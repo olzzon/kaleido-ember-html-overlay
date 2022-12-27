@@ -15,7 +15,7 @@ const Overlay = () => {
   const [sources, setSources] = useState<ISource[]>([]);
 
   socketClient.on(IO.FULL_SOURCE_LIST, (receivedSources: ISource[]) => {
-    console.log("Sources received :", receivedSources);
+    //console.log("Sources received :", receivedSources);
     setSources(receivedSources);
   });
 

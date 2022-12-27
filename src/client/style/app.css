@@ -1,11 +1,9 @@
 body {
-    background: #1c1c1c;
+    background: transparent;
     color: #fff;
 }
 
 .app {
     vertical-align: center;
     justify-content: center;
-    height: 100vh;
-    margin: 10px;
 }

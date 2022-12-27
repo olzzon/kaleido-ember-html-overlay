@@ -8,7 +8,7 @@ export const SourceOverlay = (source: ISource) => {
     left: source.positionX,
     width: source.width,
     height: source.height,
-    border: "solid 2px " + (source.tally?.[0].tally ? source.tally?.[0].color : "grey"),
+    border: "solid 3px " + (source.tally?.[0].tally ? source.tally?.[0].color : "grey"),
     color: "red",
     fontSize: "1.5rem",
   };
