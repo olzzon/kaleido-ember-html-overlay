@@ -1,30 +1,44 @@
-import React, { useState } from "react";
-import { ISource } from "../../sharedcode/interfaces";
+import React from "react";
+import { ILabelAndTallyState, ISource } from "../../sharedcode/interfaces";
 
-export const SourceOverlay = (source: ISource) => {
+interface ISourceOverlayProps {
+  source: ISource;
+  labelAndTallyState: ILabelAndTallyState;
+}
+
+export const SourceOverlay = (props: ISourceOverlayProps) => {
   let windowStyling: React.CSSProperties = {
     position: "absolute",
-    top: source.positionY,
-    left: source.positionX,
-    width: source.width,
-    height: source.height,
-    border: "solid 3px " + (source.tally?.[0].tally ? source.tally?.[0].color : "grey"),
+    top: props.source.positionY,
+    left: props.source.positionX,
+    width: props.source.width,
+    height: props.source.height,
+    border:
+      "solid 3px " +
+      (props.labelAndTallyState?.tally[0]
+        ? props.source.tallyColors[0]
+        : "grey"),
     color: "red",
     fontSize: "1.5rem",
   };
 
   let labelStyles: React.CSSProperties[];
 
-  labelStyles = source.label.map((label, index) => {
-    const tally = label.tallyIndex >= 0 ? source.tally?.[label.tallyIndex].tally : false;
-    const backgroundColor =  tally ? source.tally?.[label.tallyIndex].color : label.backgroundColor;
+  labelStyles = props.source.sourceElements.map((element) => {
+    const tally =
+      element.tallyIndex >= 0
+        ? props.labelAndTallyState?.tally[element.tallyIndex]
+        : false;
+    const backgroundColor = tally
+      ? props.source.tallyColors[element.tallyIndex]
+      : element.backgroundColor;
     return {
       position: "absolute",
-      top: label.positionY || 30,
-      left: label.positionX || 50,
-      width: label.width || 100,
-      height: label.height || 50,
-      color: label.color || "white",
+      top: element.positionY || 30,
+      left: element.positionX || 50,
+      width: element.width || 100,
+      height: element.height || 50,
+      color: element.color || "white",
       backgroundColor: backgroundColor,
     };
   });
@@ -32,7 +46,9 @@ export const SourceOverlay = (source: ISource) => {
   return (
     <div style={windowStyling}>
       {labelStyles.map((labelStyle, index) => (
-        <div style={labelStyle}>{source.label[index].label}</div>
+        <div style={labelStyle}>
+          {props.labelAndTallyState?.label[props.source.sourceElements[index].labelIndex]}
+        </div>
       ))}
     </div>
   );

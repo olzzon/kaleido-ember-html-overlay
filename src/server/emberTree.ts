@@ -32,21 +32,23 @@ const jsonTree = (sources: ILabelAndTallyState[]) => {
 };
 
 const addSource = (sources: ILabelAndTallyState[]) => {
-  const sourceChilds = sources.map((source: ILabelAndTallyState, index: number) => {
-    return {
-      identifier: source.identifier,
-      children: [
-        { identifier: "label1", value: source.label[0], access: "readWrite" },
-        { identifier: "label2", value: source.label[1], access: "readWrite" },
-        { identifier: "label3", value: source.label[2], access: "readWrite" },
-        { identifier: "label4", value: source.label[3], access: "readWrite" },
-        { identifier: "tally1", value: source.tally[1], access: "readWrite" },
-        { identifier: "tally2", value: source.tally[2], access: "readWrite" },
-        { identifier: "tally3", value: source.tally[3], access: "readWrite" },
-        { identifier: "tally4", value: source.tally[4], access: "readWrite" },
-      ],
-    };
-  });
+  const sourceChilds = sources.map(
+    (source: ILabelAndTallyState, index: number) => {
+      return {
+        identifier: source.identifier,
+        children: [
+          { identifier: "label1", value: source.label[0], access: "readWrite" },
+          { identifier: "label2", value: source.label[1], access: "readWrite" },
+          { identifier: "label3", value: source.label[2], access: "readWrite" },
+          { identifier: "label4", value: source.label[3], access: "readWrite" },
+          { identifier: "tally1", value: source.tally[0], access: "readWrite" },
+          { identifier: "tally2", value: source.tally[1], access: "readWrite" },
+          { identifier: "tally3", value: source.tally[2], access: "readWrite" },
+          { identifier: "tally4", value: source.tally[3], access: "readWrite" },
+        ],
+      };
+    }
+  );
   return sourceChilds;
 };
 

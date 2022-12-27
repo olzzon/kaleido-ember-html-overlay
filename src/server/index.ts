@@ -4,15 +4,15 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const path = require("path");
 import * as IO from "../sharedcode/IO_CONSTANTS";
-import { ISource } from "../sharedcode/interfaces";
+import { ILabelAndTallyState, ISource } from "../sharedcode/interfaces";
 import {
   getSettings,
   saveLabelTallyState,
-  saveSettings,
 } from "./utils/storage";
 import { HandleEmberServer } from "./emberserver";
 
 let sources: ISource[] = getSettings();
+let labelAndTallyState: ILabelAndTallyState[] = [];
 
 const handleEmberServer = new HandleEmberServer();
 
@@ -24,31 +24,29 @@ app.get("/", (req: any, res: any) => {
 
 io.on("connection", (socket: any) => {
   console.log("User connected :", socket.id);
-  const sendSources = () => {
+  const clientTimerState = setInterval(() => {
     sources = getSettings();
-    const emberLabelAndTally = handleEmberServer.getEmberState();
-
-    emberLabelAndTally.forEach((labelAndTally, index) => {
-      if (sources[index]) {
-        sources[index].label[0].label = labelAndTally.label[0];
-        sources[index].label[1].label = labelAndTally.label[1];
-        sources[index].tally[0].tally = labelAndTally.tally[0];
-        sources[index].tally[1].tally = labelAndTally.tally[1];
-      }
-    });
-    saveLabelTallyState(emberLabelAndTally);
-    socket.emit(IO.FULL_SOURCE_LIST, sources);
-  };
-  const clientTimerSources = setInterval(() => sendSources(), 500);
+    let oldState = labelAndTallyState
+    labelAndTallyState = handleEmberServer.getEmberState();
+    if (JSON.stringify(oldState) !== JSON.stringify(labelAndTallyState)) {
+      saveLabelTallyState(labelAndTallyState);
+      socket.emit(IO.SEND_STATE, labelAndTallyState);
+    }
+  }, 100);
+  const clientTimerSettings = setInterval(
+    () => socket.emit(IO.SEND_SETTINGS, sources),
+    2000
+  );
 
   socket
-    .on(IO.GET_SOURCE_LIST, () => {
-      console.log("Get Source list");
-      sendSources();
+    .on(IO.GET_SETTINGS, () => {
+      console.log("Client requested Source list");
+      socket.emit(IO.SEND_SETTINGS, sources)
     })
     .on("disconnect", () => {
       console.log("User disconnected");
-      clearInterval(clientTimerSources);
+      clearInterval(clientTimerState);
+      clearInterval(clientTimerSettings);
     });
 });
 

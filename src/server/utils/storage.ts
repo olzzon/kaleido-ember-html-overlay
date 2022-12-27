@@ -16,9 +16,9 @@ export const getSettings = (): ISource[] => {
     console.log("Error reading settings file", e);
     const data: ISource[] = [
       {
-        label: [
+        sourceElements: [
           {
-            label: "Source 1",
+            labelIndex: 0,
             height: 1080,
             width: 1920,
             positionX: 0,
@@ -28,14 +28,12 @@ export const getSettings = (): ISource[] => {
             tallyIndex: 0,
           },
         ],
+        emberStateIndex: 0,
         positionX: 0,
         positionY: 0,
         width: 1920,
         height: 1080,
-        tally: [
-          { tally: false, color: "red" },
-          { tally: true, color: "green" },
-        ],
+        tallyColors: ["red", "green", "blue", "yeallow"]
       },
     ];
     saveSettings(data);

@@ -1,28 +1,27 @@
-export interface ILabeledSource {
-  label: string;
+export interface ISource {
+  sourceElements: ISourceElement[];
+  emberStateIndex: number;
+  positionX: number;
+  positionY: number;
+  width: number;
+  height: number;
+  tallyColors: string[];
+}
+
+export interface ISourceElement {
+  labelIndex?: number;
+  tallyIndex?: number;
   positionX: number;
   positionY: number;
   width: number;
   height: number;
   color?: string;
   backgroundColor?: string;
-  tallyIndex?: number;
-}
-export interface ITally {
-  tally: boolean;
-  color: string;
-}
-export interface ISource {
-  label: ILabeledSource[];
-  positionX: number;
-  positionY: number;
-  width: number;
-  height: number;
-  tally: ITally[];
 }
 
 export interface ILabelAndTallyState {
   identifier: string;
   label: string[];
   tally: boolean[];
-}  
+}
+
