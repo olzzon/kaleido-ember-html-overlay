@@ -16,7 +16,6 @@ const Overlay = () => {
 
   socketClient
     .on(IO.SEND_SETTINGS, (receivedSources: ISource[]) => {
-      //console.log("Sources received :", receivedSources);
       setSources(receivedSources);
     })
     .on(IO.SEND_STATE, (receivedState: ILabelAndTallyState[]) => {

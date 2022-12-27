@@ -29,6 +29,7 @@ io.on("connection", (socket: any) => {
     let oldState = labelAndTallyState
     labelAndTallyState = handleEmberServer.getEmberState();
     if (JSON.stringify(oldState) !== JSON.stringify(labelAndTallyState)) {
+      console.log("State changed");      
       saveLabelTallyState(labelAndTallyState);
       socket.emit(IO.SEND_STATE, labelAndTallyState);
     }
@@ -41,6 +42,7 @@ io.on("connection", (socket: any) => {
   socket
     .on(IO.GET_SETTINGS, () => {
       console.log("Client requested Source list");
+      socket.emit(IO.SEND_STATE, labelAndTallyState);
       socket.emit(IO.SEND_SETTINGS, sources)
     })
     .on("disconnect", () => {

@@ -46,7 +46,7 @@ export const SourceOverlay = (props: ISourceOverlayProps) => {
   return (
     <div style={windowStyling}>
       {labelStyles.map((labelStyle, index) => (
-        <div style={labelStyle}>
+        <div key={index} style={labelStyle}>
           {props.labelAndTallyState?.label[props.source.sourceElements[index].labelIndex]}
         </div>
       ))}
