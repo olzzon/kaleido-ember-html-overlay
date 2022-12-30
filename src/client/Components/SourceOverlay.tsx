@@ -54,7 +54,6 @@ export const SourceOverlay = (props: ISourceOverlayProps) => {
         props.source.tallyColors[0]
       )}
     >
-      {Date.now()}
       {props.source.sourceElements.map(
         (element: ISourceElement, index: number) => (
           <div
