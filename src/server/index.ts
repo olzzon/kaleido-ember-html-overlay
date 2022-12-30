@@ -31,7 +31,7 @@ io.on("connection", (socket: any) => {
     if (JSON.stringify(oldState) !== JSON.stringify(labelAndTallyState)) {
       console.log("State changed");
       saveLabelTallyState(labelAndTallyState);
-      socket.emit(IO.SEND_STATE, labelAndTallyState);
+      io.sockets.emit(IO.SEND_STATE, labelAndTallyState);
     }
   }, 100);
   const clientTimerSettings = setInterval(

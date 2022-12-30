@@ -10,7 +10,6 @@ const Overlay = () => {
   const [labelAndTallyState, setLabelAndTallyState] = useState<
     ILabelAndTallyState[]
   >([]);
-  const [forceUpdate, setForceUpdate] = useState<boolean>(false);
 
   useEffect(() => {
     const socketClient = io();
@@ -22,14 +21,12 @@ const Overlay = () => {
       })
       .on(IO.SEND_STATE, (receivedState: ILabelAndTallyState[]) => {
         setLabelAndTallyState(receivedState);
-        setForceUpdate(!forceUpdate);
       });
   }, []);
 
   return (
     <div className="app">
       <div>
-        {forceUpdate ? <div></div> : <div></div>}
         {sources.map((source: ISource, index) => (
           <SourceOverlay
             key={index}
