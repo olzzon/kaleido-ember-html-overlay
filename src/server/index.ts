@@ -4,14 +4,14 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const path = require("path");
 import * as IO from "../sharedcode/IO_CONSTANTS";
-import { ILabelAndTallyState, ISource } from "../sharedcode/interfaces";
+import { ILabelAndTallyState, ISettings, ISource } from "../sharedcode/interfaces";
 import {
   getSettings,
   saveLabelTallyState,
 } from "./utils/storage";
 import { HandleEmberServer } from "./emberserver";
 
-let sources: ISource[] = getSettings();
+let settings: ISettings = getSettings();
 let labelAndTallyState: ILabelAndTallyState[] = [];
 
 const handleEmberServer = new HandleEmberServer();
@@ -25,7 +25,7 @@ app.get("/", (req: any, res: any) => {
 io.on("connection", (socket: any) => {
   console.log("User connected :", socket.id);
   const clientTimerState = setInterval(() => {
-    sources = getSettings();
+    settings = getSettings();
     let oldState = labelAndTallyState
     labelAndTallyState = handleEmberServer.getEmberState();
     if (JSON.stringify(oldState) !== JSON.stringify(labelAndTallyState)) {
@@ -35,7 +35,7 @@ io.on("connection", (socket: any) => {
     }
   }, 100);
   const clientTimerSettings = setInterval(
-    () => socket.emit(IO.SEND_SETTINGS, sources),
+    () => socket.emit(IO.SEND_SETTINGS, settings),
     2000
   );
 
@@ -43,7 +43,7 @@ io.on("connection", (socket: any) => {
     .on(IO.GET_SETTINGS, () => {
       console.log("Client requested Source list");
       socket.emit(IO.SEND_STATE, labelAndTallyState);
-      socket.emit(IO.SEND_SETTINGS, sources)
+      socket.emit(IO.SEND_SETTINGS, settings)
     })
     .on("disconnect", () => {
       console.log("User disconnected");

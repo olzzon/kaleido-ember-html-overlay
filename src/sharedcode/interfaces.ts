@@ -1,3 +1,14 @@
+export interface ISettings {
+  globalSettings: IGlobalSettings;
+  sources: ISource[];
+}
+
+export interface IGlobalSettings {
+  fontFamily: string // '"Helvetica Neue", Helvetica, Arial, sans-serif'
+  borderWidth: string // "1px solid "
+  borderRadius: string // "2px"
+}
+
 export interface ISource {
   sourceElements: ISourceElement[];
   emberStateIndex: number;
