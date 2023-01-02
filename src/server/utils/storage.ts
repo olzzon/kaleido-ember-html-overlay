@@ -23,7 +23,7 @@ export const getSettings = (): ISettings => {
       {
         globalSettings: {
           fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-          borderWidth: "1px",
+          borderWidth: "2px",
           borderRadius: "5px",
         },
         sources: defaultLayout,
