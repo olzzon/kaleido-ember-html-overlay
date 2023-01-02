@@ -19,4 +19,80 @@ localhost: 9000
 The htmloverlay-settings.json i located in your homefolder, and can be edited. Changes can be seen live either in CCG or in a browser using "http://localhost:3000"
 The file will be crerated with defualt layout at first run.
 
+### Settings Format
+The htmloverlay-settings.json file has this structure, and a default is created at first run.
+(comments in versal)
+```
+{
+    "globalSettings": {
+        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+        "borderWidth": "2px",
+        "borderRadius": "5px"
+    },
+    "sources": [
+        {
+SOURCE ELEMENTS ARE LABELS AND TALLY FIELD WITHIN A SOURCE:
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 30,
+                    "width": 200,
+                    "positionX": 210,
+                    "positionY": 490,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000aa"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 30,
+                    "width": 200,
+                    "positionX": 490,
+                    "positionY": 490,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000aa"
+                },
+                {
+                    "labelIndex": 2,
+                    "height": 30,
+                    "width": 20,
+                    "positionX": 180,
+                    "positionY": 490,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+TALLY INDEX IS THE INDEX OF THE TALLY COLOR IN THE TALLYCOLORS ARRAY IN THE SOURCE, IF NOT SET, THE TALLY WILL BE HIDDEN
+                    "tallyIndex": 0
+                },
+                {
+                    "labelIndex": 3,
+                    "height": 30,
+                    "width": 20,
+                    "positionX": 700,
+                    "positionY": 490,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 1
+                }
+            ],
+EMBER STATE INDEX IS THE INDEX OF THE EMBER STATE IN THE EMBER STATES ARRAY IN THE SOURCE, IF NOT SET, THE EMBER STATE WILL BE HIDDEN, THIS IS THE REFERENCE TO THE EMBER STATE
+            "emberStateIndex": 0,
+            "positionX": 1,
+            "positionY": 2,
+            "width": 952,
+            "height": 532,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+        
+        ...
+        ...
+        ...
 
+    ]
+}
+ ```
