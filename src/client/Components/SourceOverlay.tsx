@@ -26,6 +26,7 @@ const windowStyling = (
     height: source.height,
     border: "solid " + globalSettings.borderWidth + " " + (tally ? tallyColor : "grey"),
     borderRadius: globalSettings.borderRadius,
+    boxShadow: "none",
     color: "red",
     fontSize: "1.5rem",
     fontFamily: globalSettings.fontFamily,
@@ -51,6 +52,7 @@ const labelStyling = (
     fontFamily: globalSettings.fontFamily,
     border: "solid " + globalSettings.borderWidth + " " + (tally ? tallyColor : "grey"),
     borderRadius: globalSettings.borderRadius,
+    boxShadow: "none",
   };
 };
 
