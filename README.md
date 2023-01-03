@@ -34,6 +34,19 @@ The htmloverlay-settings.json file has this structure, and a default is created 
 SOURCE ELEMENTS ARE LABELS AND TALLY FIELD WITHIN A SOURCE:
             "sourceElements": [
                 {
+CLOCK ELEMENTS MUST INCLUDE A clockTimeZone AND clockFormat:
+                    "clockTimeZone": "Europe/Copenhagen",
+                    "clockFormat": "dk",
+                    "height": 150,
+                    "width": 900,
+                    "positionX": 10,
+                    "positionY": 100,
+                    "color": "#ffffff",
+                    "fontSizePercentage": 110,
+                    "backgroundColor": "#000000aa"
+                },
+LABEL ELEMENTS MUST INCLUDE A labelIndex (Ember label 1-4)
+                {
                     "labelIndex": 0,
                     "height": 30,
                     "width": 200,
@@ -59,7 +72,7 @@ SOURCE ELEMENTS ARE LABELS AND TALLY FIELD WITHIN A SOURCE:
                     "positionY": 490,
                     "color": "#ff0000",
                     "backgroundColor": "transparent",
-TALLY INDEX IS THE INDEX OF THE TALLY COLOR IN THE TALLYCOLORS ARRAY IN THE SOURCE, IF NOT SET, THE TALLY WILL BE HIDDEN
+TALLY INDEX MUST INCLUDE THE INDEX OF THE TALLY & COLOR IN THE TALLYCOLORS ARRAY:
                     "tallyIndex": 0
                 },
                 {
