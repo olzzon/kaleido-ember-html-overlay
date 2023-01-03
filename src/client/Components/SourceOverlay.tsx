@@ -5,12 +5,8 @@ import {
   ISource,
   ISourceElement,
 } from "../../sharedcode/interfaces";
-
-interface ISourceOverlayProps {
-  source: ISource;
-  globalSettings: IGlobalSettings;
-  labelAndTallyState: ILabelAndTallyState;
-}
+import { ClockElement } from "./ClockElement";
+import { TextTallyElement } from "./TextTallyElement";
 
 const windowStyling = (
   source: ISource,
@@ -24,7 +20,11 @@ const windowStyling = (
     left: source.positionX,
     width: source.width,
     height: source.height,
-    border: "solid " + globalSettings.borderWidth + " " + (tally ? tallyColor : "grey"),
+    border:
+      "solid " +
+      globalSettings.borderWidth +
+      " " +
+      (tally ? tallyColor : "grey"),
     borderRadius: globalSettings.borderRadius,
     boxShadow: "none",
     color: "red",
@@ -33,28 +33,11 @@ const windowStyling = (
   };
 };
 
-const labelStyling = (
-  element: ISourceElement,
-  globalSettings: IGlobalSettings,
-  tallyValue: boolean,
-  tallyColor: string
-): React.CSSProperties => {
-  const tally = element.tallyIndex >= 0 ? tallyValue : false;
-  const backgroundColor = tally ? tallyColor : element.backgroundColor;
-  return {
-    position: "absolute",
-    top: element.positionY || 30,
-    left: element.positionX || 50,
-    width: element.width || 100,
-    height: element.height || 50,
-    color: element.color || "white",
-    backgroundColor: backgroundColor,
-    fontFamily: globalSettings.fontFamily,
-    border: "solid " + globalSettings.borderWidth + " " + (tally ? tallyColor : "grey"),
-    borderRadius: globalSettings.borderRadius,
-    boxShadow: "none",
-  };
-};
+interface ISourceOverlayProps {
+  source: ISource;
+  globalSettings: IGlobalSettings;
+  labelAndTallyState: ILabelAndTallyState;
+}
 
 export const SourceOverlay = (props: ISourceOverlayProps) => {
   return (
@@ -67,19 +50,25 @@ export const SourceOverlay = (props: ISourceOverlayProps) => {
       )}
     >
       {props.source.sourceElements.map(
-        (element: ISourceElement, index: number) => (
-          <div
-            key={index}
-            style={labelStyling(
-              element,
-              props.globalSettings,
-              props.labelAndTallyState.tally[element.tallyIndex],
-              props.source.tallyColors[element.tallyIndex]
-            )}
-          >
-            {props.labelAndTallyState?.label[element.labelIndex]}
-          </div>
-        )
+        (element: ISourceElement, index: number) =>
+          element.clockTimeZone ? (
+            <ClockElement
+              key={index}
+              element={element}
+              globalSettings={props.globalSettings}
+              tallyState={props.labelAndTallyState.tally[element.tallyIndex]}
+              tallyColor={props.source.tallyColors[element.tallyIndex]}
+            />
+          ) : (
+            <TextTallyElement
+              key={index}
+              element={element}
+              globalSettings={props.globalSettings}
+              label={props.labelAndTallyState?.label[element.labelIndex]}
+              tallyState={props.labelAndTallyState.tally[element.tallyIndex]}
+              tallyColor={props.source.tallyColors[element.tallyIndex]}
+            />
+          )
       )}
     </div>
   );

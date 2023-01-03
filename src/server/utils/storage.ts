@@ -50,7 +50,7 @@ export const getLabelTallyState = (): ILabelAndTallyState[] => {
     for (let index = 0; index < 100; index++) {
       emptyData.push({
         identifier: "Source " + String(index + 1).padStart(3, "0"),
-        label: ["", "", "", ""],
+        label: ["Src "+ String(index + 1).padStart(3, "0"), "label 2", "", ""],
         tally: [false, false, false, false],
       });
     }

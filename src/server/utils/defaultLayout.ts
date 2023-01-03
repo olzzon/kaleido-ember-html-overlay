@@ -4,6 +4,17 @@ export const defaultLayout: ISource[] = [
   {
     sourceElements: [
       {
+        clockTimeZone: "Europe/Copenhagen",
+        clockFormat: "dk",
+        height: 150,
+        width: 900,
+        positionX: 10,
+        positionY: 100,
+        color: "#ffffff",
+        fontSizePercentage: 110,
+        backgroundColor: "#000000aa",
+      },
+      {
         labelIndex: 0,
         height: 30,
         width: 200,

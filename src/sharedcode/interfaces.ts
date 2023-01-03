@@ -22,10 +22,13 @@ export interface ISource {
 export interface ISourceElement {
   labelIndex?: number;
   tallyIndex?: number;
+  clockTimeZone?: string;
+  clockFormat?: string;
   positionX: number;
   positionY: number;
   width: number;
   height: number;
+  fontSizePercentage?: number;
   color?: string;
   backgroundColor?: string;
 }
