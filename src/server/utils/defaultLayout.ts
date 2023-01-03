@@ -6,12 +6,12 @@ export const defaultLayout: ISource[] = [
       {
         clockTimeZone: "Europe/Copenhagen",
         clockFormat: "dk",
-        height: 150,
+        height: 110,
         width: 900,
         positionX: 10,
         positionY: 100,
         color: "#ffffff",
-        fontSizePercentage: 110,
+        fontSizePercentage: 105,
         backgroundColor: "#000000aa",
       },
       {
