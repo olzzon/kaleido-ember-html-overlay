@@ -2,6 +2,14 @@
 
 Generate you own HTML overlay for your video stream.
 
+## Installation
+Download and run latest .exe release from:
+https://github.com/olzzon/kaleido-ember-html-overlay/releases/latest
+
+<img src="doc/overlay_on_test_pix.png">
+
+
+## Usage
 ### Using CasparCG and Decklink with Internal Keying support
 
 run "kaleido-ember-win-x64.exe" on your CasparCG machine.
