@@ -1,18 +1,17 @@
-import { ILabelAndTallyState } from "../sharedcode/interfaces";
+import { IEmberState, ILabelAndTallyState } from "../sharedcode/interfaces";
 
 import { createEmberTree } from "./emberTree";
 import { EmberServer } from "node-emberplus/lib/server/ember-server";
-import { getLabelTallyState } from "./utils/storage";
+import { getStoredEmberState } from "./utils/storage";
 
 export class HandleEmberServer {
   emberServer: EmberServer;
-  labelAndTallyState: ILabelAndTallyState[] = [];
 
   constructor() {
     this.emberServer = new EmberServer({
       host: "0.0.0.0",
       port: 9000,
-      tree: createEmberTree(getLabelTallyState()),
+      tree: createEmberTree(getStoredEmberState()),
     }); // start server on port 9000
 
     this.emberServer.on("error", (e: any) => {
@@ -29,10 +28,10 @@ export class HandleEmberServer {
       });
   }
 
-  getEmberState = (): ILabelAndTallyState[] => {
+  getEmberState = (): IEmberState => {
     const tree = this.emberServer.toJSON();
     let emberLabelAndTallyState: ILabelAndTallyState[] =
-      tree[0].children[1].children.map((child: any) => {
+      tree[0].children[2].children.map((child: any) => {
         return {
           identifier: child.identifier,
           label: [
@@ -49,6 +48,10 @@ export class HandleEmberServer {
           ],
         };
       });
-    return emberLabelAndTallyState;
+    let emberState: IEmberState = {
+      labelAndTallyState: emberLabelAndTallyState,
+      selectedLayout: tree[0].children[1].children[0].value,
+    }      
+    return emberState;
   };
 }

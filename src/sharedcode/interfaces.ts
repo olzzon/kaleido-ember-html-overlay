@@ -1,6 +1,8 @@
 export interface ISettings {
   globalSettings: IGlobalSettings;
   sources: ISource[];
+  layoutFileList?: string[];
+  selectedLayout?: number;
 }
 
 export interface IGlobalSettings {
@@ -31,6 +33,11 @@ export interface ISourceElement {
   fontSizePercentage?: number;
   color?: string;
   backgroundColor?: string;
+}
+
+export interface IEmberState {
+  labelAndTallyState: ILabelAndTallyState[];
+  selectedLayout: number;
 }
 
 export interface ILabelAndTallyState {

@@ -1,8 +1,8 @@
-import { ILabelAndTallyState } from "../sharedcode/interfaces";
+import { IEmberState, ILabelAndTallyState } from "../sharedcode/interfaces";
 
 const EmberServer = require("node-emberplus").EmberServer;
 
-const jsonTree = (sources: ILabelAndTallyState[]) => {
+const jsonTree = (emberState: IEmberState) => {
   const tree = [
     {
       // path "0"
@@ -21,9 +21,22 @@ const jsonTree = (sources: ILabelAndTallyState[]) => {
           ],
         },
         {
-          // path "0.0"
+          // path "0.1"
+          identifier: "layoutSelector",
+          children: [
+            {
+              identifier: "load layout",
+              value: emberState,
+              min: 1,
+              max: 100,
+              access: "readWrite",
+            },
+          ],
+        },
+        {
+          // path "0.2"
           identifier: "sources",
-          children: addSource(sources),
+          children: addSource(emberState.labelAndTallyState),
         },
       ],
     },
@@ -32,8 +45,8 @@ const jsonTree = (sources: ILabelAndTallyState[]) => {
 };
 
 const addSource = (sources: ILabelAndTallyState[]) => {
-  const sourceChilds = sources.map(
-    (source: ILabelAndTallyState, index: number) => {
+  const sourceChilds = sources?.map(
+    (source: ILabelAndTallyState) => {
       return {
         identifier: source.identifier,
         children: [
@@ -52,7 +65,7 @@ const addSource = (sources: ILabelAndTallyState[]) => {
   return sourceChilds;
 };
 
-export const createEmberTree = (sources: ILabelAndTallyState[]) => {
-  const tree = jsonTree(sources);
+export const createEmberTree = (emberState: IEmberState) => {
+  const tree = jsonTree(emberState);
   return EmberServer.createTreeFromJSON(tree);
 };

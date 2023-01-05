@@ -4,15 +4,18 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const path = require("path");
 import * as IO from "../sharedcode/IO_CONSTANTS";
-import { ILabelAndTallyState, ISettings, ISource } from "../sharedcode/interfaces";
+import { IEmberState, ISettings } from "../sharedcode/interfaces";
 import {
   getSettings,
-  saveLabelTallyState,
+  saveEmberState,
 } from "./utils/storage";
 import { HandleEmberServer } from "./emberserver";
 
 let settings: ISettings = getSettings();
-let labelAndTallyState: ILabelAndTallyState[] = [];
+let emberState: IEmberState = {
+  labelAndTallyState: [],
+  selectedLayout: 0,
+}
 
 const handleEmberServer = new HandleEmberServer();
 
@@ -26,12 +29,12 @@ io.on("connection", (socket: any) => {
   console.log("User connected :", socket.id);
   const clientTimerState = setInterval(() => {
     settings = getSettings();
-    let oldState = labelAndTallyState
-    labelAndTallyState = handleEmberServer.getEmberState();
-    if (JSON.stringify(oldState) !== JSON.stringify(labelAndTallyState)) {
+    let oldState = emberState
+    emberState = handleEmberServer.getEmberState();
+    if (JSON.stringify(oldState) !== JSON.stringify(emberState)) {
       console.log("State changed");
-      saveLabelTallyState(labelAndTallyState);
-      io.sockets.emit(IO.SEND_STATE, labelAndTallyState);
+      saveEmberState(emberState);
+      io.sockets.emit(IO.SEND_STATE, emberState.labelAndTallyState);
     }
   }, 100);
   const clientTimerSettings = setInterval(
@@ -42,7 +45,7 @@ io.on("connection", (socket: any) => {
   socket
     .on(IO.GET_SETTINGS, () => {
       console.log("Client requested Source list");
-      socket.emit(IO.SEND_STATE, labelAndTallyState);
+      socket.emit(IO.SEND_STATE, emberState.labelAndTallyState);
       socket.emit(IO.SEND_SETTINGS, settings)
     })
     .on("disconnect", () => {
