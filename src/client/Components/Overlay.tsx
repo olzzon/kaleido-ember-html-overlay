@@ -4,17 +4,14 @@ import {
   IEmberState,
   ILabelAndTallyState,
 } from "../../sharedcode/stateInterface";
-import {
-  IGlobalSettings,
-  ISettings,
-} from "../../sharedcode/settingsInterface";
+import { IGlobalSettings, ISettings } from "../../sharedcode/settingsInterface";
 import { IKaleidoLayouts, ISource } from "../../sharedcode/layoutInterface";
 import * as IO from "../../sharedcode/IO_CONSTANTS";
 import "../style/app.css";
 import { SourceOverlay } from "./SourceOverlay";
 
 const urlParams = new URLSearchParams(window.location.search);
-const selectedKaleidoOutput: number = parseInt(urlParams.get("output")) || 0;
+const selectedKaleidoOutput: number = parseInt(urlParams.get("output")) - 1 || 0;
 
 const Overlay = () => {
   const [selectedLayout, setSelectedLayout] = useState(0);
@@ -39,27 +36,37 @@ const Overlay = () => {
       .on(IO.SEND_STATE, (receivedState: IEmberState) => {
         console.log("receivedState :", receivedState);
         setLabelAndTallyState(
-          receivedState.kaleidoOutputsState[selectedKaleidoOutput].labelAndTallyState
+          receivedState.kaleidoOutputsState[selectedKaleidoOutput]
+            .labelAndTallyState
         );
-        setSelectedLayout(receivedState.kaleidoOutputsState[selectedKaleidoOutput].selectedLayout)
+        if (layouts?.kaleidoLayouts.length > selectedLayout) {
+          setSelectedLayout(0);
+        } else {
+          setSelectedLayout(
+            receivedState.kaleidoOutputsState[selectedKaleidoOutput]
+              .selectedLayout
+          );
+        }
       })
       .on(IO.SEND_LAYOUT, (receivedLayouts: IKaleidoLayouts) => {
         console.log("receivedLayouts :", receivedLayouts);
-          setLayouts(receivedLayouts);
+        setLayouts(receivedLayouts);
       });
   }, []);
 
   return (
     <div className="app">
       <div>
-        {layouts?.kaleidoLayouts?.[selectedLayout].sources.map((source: ISource, index) => (
-          <SourceOverlay
-            key={index}
-            source={source}
-            globalSettings={globalSettings}
-            labelAndTallyState={labelAndTallyState[source.emberStateIndex]}
-          />
-        ))}
+        {layouts?.kaleidoLayouts?.[selectedLayout].sources.map(
+          (source: ISource, index) => (
+            <SourceOverlay
+              key={index}
+              source={source}
+              globalSettings={globalSettings}
+              labelAndTallyState={labelAndTallyState[source.emberStateIndex]}
+            />
+          )
+        )}
       </div>
     </div>
   );

@@ -67,20 +67,20 @@ export const getLayouts = (settings: ISettings): IKaleidoLayouts => {
 
 export const saveDefaultLayout = (): void => {
   console.log("Saving default layout");
-  
   fs.writeFileSync(DEFAULT_LAYOUT, JSON.stringify(defaultLayout));
 };
 
 export const getStoredEmberState = (settings: ISettings): IEmberState => {
-  let data: IEmberState;
+  let state: IEmberState;
   try {
-    data = JSON.parse(fs.readFileSync(EMBER_STATE_FILE, "utf8"));
-    return data;
+    state = JSON.parse(fs.readFileSync(EMBER_STATE_FILE, "utf8"));
+    state = addEmptyOutputsEmberState(settings, state)
+    return state;
   } catch (e) {
     console.log("Error reading state file", e);
-    data = createEmptyEmberState(settings);
-    saveEmberState(data);
-    return data;
+    state = addEmptyOutputsEmberState(settings, {kaleidoOutputsState: []});
+    saveEmberState(state);
+    return state;
   }
 };
 
@@ -88,26 +88,35 @@ export const saveEmberState = (emberState: IEmberState): void => {
   fs.writeFileSync(EMBER_STATE_FILE, JSON.stringify(emberState));
 };
 
-const createEmptyEmberState = (settings: ISettings): IEmberState => {
+const addEmptyOutputsEmberState = (settings: ISettings, state: IEmberState): IEmberState => {
   let data: IEmberState;
   data = {
     kaleidoOutputsState: ([] = []),
   };
 
-  let labelAndTallyState: ILabelAndTallyState[] = [];
+  // Create empty output:
+  let defaultLabelAndTallyState: ILabelAndTallyState[] = [];
   for (let index = 0; index < 100; index++) {
-    labelAndTallyState.push({
+    defaultLabelAndTallyState.push({
       identifier: "Source" + String(index + 1).padStart(3, "0"),
       label: ["Src " + String(index + 1).padStart(3, "0"), "label 2", "", ""],
       tally: [false, false, false, false],
     });
   }
 
+  // Add empty outputs:
   settings.kaleidoOutputs.forEach(() => {
     data.kaleidoOutputsState.push({
       selectedLayout: 0,
-      labelAndTallyState: labelAndTallyState,
+      labelAndTallyState: defaultLabelAndTallyState,
     });
+  });
+
+  // Insert existing outputs:
+  state.kaleidoOutputsState.forEach((outputState, index) => {
+    if (outputState.labelAndTallyState.length <= defaultLabelAndTallyState.length) {
+      data.kaleidoOutputsState[index].labelAndTallyState = defaultLabelAndTallyState;
+    }
   });
 
   return data;

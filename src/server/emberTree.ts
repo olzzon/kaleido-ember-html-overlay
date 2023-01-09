@@ -25,7 +25,7 @@ const jsonTree = (emberState: IEmberState, numberOfOutputs: number) => {
             },
           ],
         },
-        Object.assign({}, ...addKaleidoOutputs(emberState, numberOfOutputs)),
+        ...addKaleidoOutputs(emberState, numberOfOutputs),
       ],
     },
   ];
@@ -39,7 +39,7 @@ const addKaleidoOutputs = (
   const outputs = [];
   for (let i = 0; i < numberOfOutputs; i++) {
     outputs.push({
-      identifier: "output " + String(i + 1).padStart(2, "0"),
+      identifier: "output" + String(i + 1).padStart(2, "0"),
       children: [
         {
           // path "0.1.0"
@@ -47,7 +47,7 @@ const addKaleidoOutputs = (
           children: [
             {
               identifier: "load layout",
-              value: emberState.kaleidoOutputsState[i].selectedLayout || 1,
+              value: emberState.kaleidoOutputsState?.[i]?.selectedLayout || 0,
               min: 1,
               max: 100,
               access: "readWrite",
@@ -62,7 +62,7 @@ const addKaleidoOutputs = (
 };
 
 const addSources = (emberState: IEmberState, index: number) => {
-  const sourceChilds: Array<any> = addSource(emberState.kaleidoOutputsState[index])
+  const sourceChilds = addSource(emberState.kaleidoOutputsState[index])
   const sources = {
     // path "0.1.1-length"
     identifier: "sources",
