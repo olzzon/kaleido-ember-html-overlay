@@ -1,18 +1,34 @@
-import { IEmberState, ILabelAndTallyState } from "../sharedcode/interfaces";
+import {
+  IEmberState,
+  IKaleidoState,
+  ILabelAndTallyState,
+} from "../sharedcode/stateInterface";
 
 import { createEmberTree } from "./emberTree";
 import { EmberServer } from "node-emberplus/lib/server/ember-server";
 import { getStoredEmberState } from "./utils/storage";
+import { ISettings } from "../sharedcode/settingsInterface";
+
+interface IEmberServerProps {
+  hostIp: string;
+  port: number;
+  settings: ISettings;
+}
 
 export class HandleEmberServer {
   emberServer: EmberServer;
 
-  constructor() {
+  constructor(props: IEmberServerProps) {
+    const storedEmberState = getStoredEmberState(props.settings);
+    const tree = createEmberTree(
+      storedEmberState,
+      props.settings.kaleidoOutputs.length
+    );
     this.emberServer = new EmberServer({
-      host: "0.0.0.0",
-      port: 9000,
-      tree: createEmberTree(getStoredEmberState()),
-    }); // start server on port 9000
+      host: props.hostIp,
+      port: props.port,
+      tree: tree,
+    });
 
     this.emberServer.on("error", (e: any) => {
       console.log("Server Error", e);
@@ -30,8 +46,11 @@ export class HandleEmberServer {
 
   getEmberState = (): IEmberState => {
     const tree = this.emberServer.toJSON();
-    let emberLabelAndTallyState: ILabelAndTallyState[] =
-      tree[0].children[2].children.map((child: any) => {
+    let kaleidoState: IKaleidoState[] = [];
+    for (let i = 1; i < tree[0].children.length; i++) {
+      let emberLabelAndTallyState: ILabelAndTallyState[] = tree[0].children[
+        i
+      ].children[1].children.map((child: any) => {
         return {
           identifier: child.identifier,
           label: [
@@ -48,10 +67,14 @@ export class HandleEmberServer {
           ],
         };
       });
+      kaleidoState.push({
+        labelAndTallyState: emberLabelAndTallyState,
+        selectedLayout: tree[0].children[i].children[0].children[0].value,
+      });
+    }
     let emberState: IEmberState = {
-      labelAndTallyState: emberLabelAndTallyState,
-      selectedLayout: tree[0].children[1].children[0].value,
-    }      
+      kaleidoOutputsState: kaleidoState,
+    };
     return emberState;
   };
 }

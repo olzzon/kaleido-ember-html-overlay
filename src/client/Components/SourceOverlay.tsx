@@ -1,12 +1,9 @@
 import React from "react";
-import {
-  IGlobalSettings,
-  ILabelAndTallyState,
-  ISource,
-  ISourceElement,
-} from "../../sharedcode/interfaces";
+import { ILabelAndTallyState } from "../../sharedcode/stateInterface";
+import { IGlobalSettings } from "../../sharedcode/settingsInterface";
 import { ClockElement } from "./ClockElement";
 import { TextTallyElement } from "./TextTallyElement";
+import { ISource, ISourceElement } from "../../sharedcode/layoutInterface";
 
 const windowStyling = (
   source: ISource,

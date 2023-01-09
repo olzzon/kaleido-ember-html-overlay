@@ -1,4 +1,4 @@
-import { ISource } from "../../sharedcode/interfaces";
+import { ISource } from "../../sharedcode/layoutInterface";
 
 export const defaultLayout: ISource[] = [
   {

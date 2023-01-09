@@ -1,5 +1,6 @@
 import React from "react";
-import { IGlobalSettings, ISourceElement } from "../../sharedcode/interfaces";
+import { ISourceElement } from "../../sharedcode/layoutInterface";
+import { IGlobalSettings } from "../../sharedcode/settingsInterface";
 
 const labelStyling = (
   element: ISourceElement,

@@ -1,8 +1,13 @@
-import { IEmberState, ILabelAndTallyState } from "../sharedcode/interfaces";
+import { ISettings } from "../sharedcode/settingsInterface";
+import {
+  IEmberState,
+  IKaleidoState,
+  ILabelAndTallyState,
+} from "../sharedcode/stateInterface";
 
 const EmberServer = require("node-emberplus").EmberServer;
 
-const jsonTree = (emberState: IEmberState) => {
+const jsonTree = (emberState: IEmberState, numberOfOutputs: number) => {
   const tree = [
     {
       // path "0"
@@ -20,33 +25,55 @@ const jsonTree = (emberState: IEmberState) => {
             },
           ],
         },
-        {
-          // path "0.1"
-          identifier: "layoutSelector",
-          children: [
-            {
-              identifier: "load layout",
-              value: emberState,
-              min: 1,
-              max: 100,
-              access: "readWrite",
-            },
-          ],
-        },
-        {
-          // path "0.2"
-          identifier: "sources",
-          children: addSource(emberState.labelAndTallyState),
-        },
+        Object.assign({}, ...addKaleidoOutputs(emberState, numberOfOutputs)),
       ],
     },
   ];
   return tree;
 };
 
-const addSource = (sources: ILabelAndTallyState[]) => {
-  const sourceChilds = sources?.map(
-    (source: ILabelAndTallyState) => {
+const addKaleidoOutputs = (
+  emberState: IEmberState,
+  numberOfOutputs: number
+) => {
+  const outputs = [];
+  for (let i = 0; i < numberOfOutputs; i++) {
+    outputs.push({
+      identifier: "output " + String(i + 1).padStart(2, "0"),
+      children: [
+        {
+          // path "0.1.0"
+          identifier: "layoutSelector",
+          children: [
+            {
+              identifier: "load layout",
+              value: emberState.kaleidoOutputsState[i].selectedLayout || 1,
+              min: 1,
+              max: 100,
+              access: "readWrite",
+            },
+          ],
+        },
+        addSources(emberState, i),
+      ],
+    });
+  }
+  return outputs;
+};
+
+const addSources = (emberState: IEmberState, index: number) => {
+  const sourceChilds: Array<any> = addSource(emberState.kaleidoOutputsState[index])
+  const sources = {
+    // path "0.1.1-length"
+    identifier: "sources",
+    children: sourceChilds,
+  };
+  return sources;
+};
+
+const addSource = (kaleidoState: IKaleidoState) => {
+  const sourceChilds = kaleidoState.labelAndTallyState?.map(
+    (source: ILabelAndTallyState, index) => {
       return {
         identifier: source.identifier,
         children: [
@@ -65,7 +92,12 @@ const addSource = (sources: ILabelAndTallyState[]) => {
   return sourceChilds;
 };
 
-export const createEmberTree = (emberState: IEmberState) => {
-  const tree = jsonTree(emberState);
-  return EmberServer.createTreeFromJSON(tree);
+export const createEmberTree = (
+  emberState: IEmberState,
+  numberOfOutputs: number
+) => {
+  const treeJSON = jsonTree(emberState, numberOfOutputs);
+  console.log("createEmberTree", treeJSON);
+  const tree = EmberServer.createTreeFromJSON(treeJSON);
+  return tree;
 };

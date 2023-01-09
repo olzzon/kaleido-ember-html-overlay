@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { IGlobalSettings, ISourceElement } from "../../sharedcode/interfaces";
+import { ISourceElement } from "../../sharedcode/layoutInterface";
+import { IGlobalSettings} from "../../sharedcode/settingsInterface";
 
 const clockStyling = (
   element: ISourceElement,
