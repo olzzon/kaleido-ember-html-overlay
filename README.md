@@ -29,14 +29,42 @@ The file will be crerated with defualt layout at first run.
 
 ### Settings Format
 The htmloverlay-settings.json file has this structure, and a default is created at first run.
-(comments in versal)
+* layoutFileList: List of layout files to be used, these can be recalled from Ember
+* kaleidoOutputs: List of kaleido outputs, each output can have a different layout, and different global settings.
+
 ```
 {
-    "globalSettings": {
-        "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
-        "borderWidth": "2px",
-        "borderRadius": "5px"
-    },
+    "layoutFileList": ["/Users/myuser/htmloverlay-layout1.json","/Users/myuser/htmloverlay-layout2.json"],
+    "kaleidoOutputs": [
+        {
+            "globalSettings": {
+                "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+                "borderWidth": "2px",
+                "borderRadius": "5px"
+            },
+            "outputName": "Kaleido 1",
+            "selectedLayout": 0
+        },
+        {
+            "globalSettings": {
+                "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif",
+                "borderWidth": "2px",
+                "borderRadius": "5px"
+            },
+            "outputName": "Kaleido 2",
+            "selectedLayout": 0
+        },
+.....]
+}
+
+ ```
+
+### Layout format:
+
+After first run a default layout is created in the htmloverlay-default-layout.json file.
+this can be edited, and copied to new files.
+
+```
     "sources": [
         {
 SOURCE ELEMENTS ARE LABELS AND TALLY FIELD WITHIN A SOURCE:
@@ -107,6 +135,7 @@ EMBER STATE INDEX IS THE INDEX OF THE EMBER STATE IN THE EMBER STATES ARRAY IN T
                 "yellow"
             ]
         },
+SECOND SOURCE:
         {
             "sourceElements": [
         
@@ -116,4 +145,9 @@ EMBER STATE INDEX IS THE INDEX OF THE EMBER STATE IN THE EMBER STATES ARRAY IN T
 
     ]
 }
- ```
+```
+
+### Ember states
+The ember states are the states that are sent from Ember to the htmloverlay, and can be used to change the layout.
+The state are store in htmlOverlayEmberStates.json, this file is not meant for editing purposes and will only be read upon startup.
+
