@@ -1,6 +1,7 @@
 # VSM controlled - KALEIDO HTML OVERLAY
 
 Generate you own HTML overlay for your video stream.
+It supports as many kaleido outputs as you wish, and each output can have a different layout. Use localhost:3000/?output=xx to select output. The default setup are configured with 4 outputs.
 
 ## Installation
 Download and run latest .exe release from:
@@ -16,7 +17,7 @@ run "kaleido-ember-win-x64.exe" on your CasparCG machine.
 Setup Decklink to use internal keyer (only some Decklink cards support this)
 
 Call command:
-play 1-11 [html] http://localhost:3000
+play 1-11 [html] http://localhost:3000/?output=1
 
 Calling layout from Lawo Ember viewer:
 run ember viewer.
@@ -24,7 +25,7 @@ Add connection:
 localhost: 9000
 
 ### Changing layout
-The htmloverlay-settings.json i located in your homefolder, and can be edited. Changes can be seen live either in CCG or in a browser using "http://localhost:3000"
+The htmloverlay-default-layout.json i located in your homefolder, and can be edited. Changes can be seen live either in CCG or in a browser using "http://localhost:3000/?output=xx"
 The file will be crerated with defualt layout at first run.
 
 ### Settings Format
