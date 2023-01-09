@@ -6,7 +6,10 @@ import {
   IKaleidoLayout,
   IKaleidoLayouts,
 } from "../../sharedcode/layoutInterface";
-import { IEmberState, ILabelAndTallyState } from "../../sharedcode/stateInterface";
+import {
+  IEmberState,
+  ILabelAndTallyState,
+} from "../../sharedcode/stateInterface";
 
 import { defaultLayout } from "./defaultLayout";
 import { defaultSettings } from "./defaultSettings";
@@ -14,6 +17,7 @@ import { defaultSettings } from "./defaultSettings";
 const homeDir = os.homedir();
 const SETTINGS_FILE = path.join(homeDir, "htmloverlay-settings.json");
 const EMBER_STATE_FILE = path.join(homeDir, "htmloverlay-ember-state.json");
+const DEFAULT_LAYOUT = path.join(homeDir, "htmloverlay-default-layout.json");
 
 export const getSettings = (): ISettings => {
   try {
@@ -32,27 +36,39 @@ export const saveSettings = (settings: ISettings): void => {
 };
 
 export const getLayouts = (settings: ISettings): IKaleidoLayouts => {
+  let layouts: IKaleidoLayout[] = [];
   try {
-    let data: IKaleidoLayouts = {
-      defaultKaleidoLayout: JSON.parse(fs.readFileSync(SETTINGS_FILE, "utf8"))
-        .defaultKaleidoLayout,
-    };
-    if (settings.layoutFileList) {
-      data.kaleidoLayouts = [];
-      settings.layoutFileList.forEach((layoutFile, index) => {
+    layouts.push(
+      JSON.parse(fs.readFileSync(DEFAULT_LAYOUT, "utf8"))
+    );
+  } catch (e) {
+    console.log("Error reading default layout", e);
+    saveDefaultLayout();
+    layouts.push(defaultLayout);
+  }
+  if (settings.layoutFileList) {
+    settings.layoutFileList.forEach((layoutFile) => {
+      try {
         const file = JSON.parse(
           fs.readFileSync(layoutFile, "utf8")
         ) as IKaleidoLayout;
         if (file) {
-          data.kaleidoLayouts?.push(file);
+          layouts.push(file);
         }
-      });
-    }
-    return data;
-  } catch (e) {
-    console.log("Error reading layout files", e);
-    return { defaultKaleidoLayout: defaultLayout };
+      } catch (e) {
+        console.log("Error reading layout file", e);
+      }
+    });
+    return {kaleidoLayouts: layouts}
+  } else {
+    return {kaleidoLayouts: [defaultLayout]}
   }
+};
+
+export const saveDefaultLayout = (): void => {
+  console.log("Saving default layout");
+  
+  fs.writeFileSync(DEFAULT_LAYOUT, JSON.stringify(defaultLayout));
 };
 
 export const getStoredEmberState = (settings: ISettings): IEmberState => {
@@ -89,11 +105,10 @@ const createEmptyEmberState = (settings: ISettings): IEmberState => {
 
   settings.kaleidoOutputs.forEach(() => {
     data.kaleidoOutputsState.push({
-      selectedLayout: -1,
+      selectedLayout: 0,
       labelAndTallyState: labelAndTallyState,
     });
   });
 
   return data;
 };
-

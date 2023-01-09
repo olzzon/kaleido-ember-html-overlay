@@ -9,7 +9,7 @@ const defaultKaleidoOutputs = (): IOutput[] => {
         borderRadius: "5px",
       },
       outputName: "Kaleido 1",
-      selectedLayout: -1,
+      selectedLayout: 0,
     },
     {
       globalSettings: {
@@ -18,7 +18,7 @@ const defaultKaleidoOutputs = (): IOutput[] => {
         borderRadius: "5px",
       },
       outputName: "Kaleido 2",
-      selectedLayout: -1,
+      selectedLayout: 0,
     },
     {
       globalSettings: {
@@ -27,7 +27,7 @@ const defaultKaleidoOutputs = (): IOutput[] => {
         borderRadius: "5px",
       },
       outputName: "Kaleido 3",
-      selectedLayout: -1,
+      selectedLayout: 0,
     },
     {
       globalSettings: {
@@ -36,7 +36,7 @@ const defaultKaleidoOutputs = (): IOutput[] => {
         borderRadius: "5px",
       },
       outputName: "Kaleido 4",
-      selectedLayout: -1,
+      selectedLayout: 0,
     },
   ];
 };

@@ -1,6 +1,5 @@
 export interface IKaleidoLayouts {
-  defaultKaleidoLayout: ISource[];
-  kaleidoLayouts?: IKaleidoLayout[];
+  kaleidoLayouts: IKaleidoLayout[];
 }
 
 export interface IKaleidoLayout {

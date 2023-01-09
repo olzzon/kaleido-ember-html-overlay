@@ -14,11 +14,11 @@ import "../style/app.css";
 import { SourceOverlay } from "./SourceOverlay";
 
 const urlParams = new URLSearchParams(window.location.search);
-const selectedKaleidoOutput: number = parseInt(urlParams.get("output")) - 1 || 0;
+const selectedKaleidoOutput: number = parseInt(urlParams.get("output")) || 0;
 
 const Overlay = () => {
-  const [selectedLayout, setSelectedLayout] = useState(-1);
-  const [sources, setSources] = useState<ISource[]>([]);
+  const [selectedLayout, setSelectedLayout] = useState(0);
+  const [layouts, setLayouts] = useState<IKaleidoLayouts>();
   const [globalSettings, setGlobalSettings] = useState<IGlobalSettings>(
     {} as IGlobalSettings
   );
@@ -32,35 +32,27 @@ const Overlay = () => {
     socketClient
       .on(IO.SEND_SETTINGS, (receivedSettings: ISettings) => {
         console.log("receivedSettings :", receivedSettings);
-        
         setGlobalSettings(
           receivedSettings.kaleidoOutputs[selectedKaleidoOutput].globalSettings
-        );
-        setSelectedLayout(
-          receivedSettings.kaleidoOutputs[selectedKaleidoOutput].selectedLayout
         );
       })
       .on(IO.SEND_STATE, (receivedState: IEmberState) => {
         console.log("receivedState :", receivedState);
-        
         setLabelAndTallyState(
           receivedState.kaleidoOutputsState[selectedKaleidoOutput].labelAndTallyState
         );
+        setSelectedLayout(receivedState.kaleidoOutputsState[selectedKaleidoOutput].selectedLayout)
       })
       .on(IO.SEND_LAYOUT, (receivedLayouts: IKaleidoLayouts) => {
         console.log("receivedLayouts :", receivedLayouts);
-        if (selectedLayout === -1) {
-          setSources(receivedLayouts.defaultKaleidoLayout);
-        } else {
-          setSources(receivedLayouts.kaleidoLayouts[selectedLayout].sources);
-        }
+          setLayouts(receivedLayouts);
       });
   }, []);
 
   return (
     <div className="app">
       <div>
-        {sources?.map((source: ISource, index) => (
+        {layouts?.kaleidoLayouts?.[selectedLayout].sources.map((source: ISource, index) => (
           <SourceOverlay
             key={index}
             source={source}
