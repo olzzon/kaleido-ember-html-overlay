@@ -11,13 +11,22 @@ https://github.com/olzzon/kaleido-ember-html-overlay/releases/latest
 
 
 ## Usage
-### Using CasparCG and Decklink with Internal Keying support
+### Using CasparCG and Decklink with Internal Keying support or NDI:
 
 run "kaleido-ember-win-x64.exe" on your CasparCG machine.
 Setup Decklink to use internal keyer (only some Decklink cards support this)
 
-Call command:
+Play command for Decklink SDI keyer:
+```
 play 1-11 [html] http://localhost:3000/?output=1
+````
+
+Play command for NDI overlay:
+```
+play 1-10 [NDI] "ndi://TRICASTER-MACHINE/Tricaster Multiview 2"
+play 1-11 [html] "http://localhost:3000/?output=1&ndi=1"
+````
+
 
 Calling layout from Lawo Ember viewer:
 run ember viewer.
