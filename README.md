@@ -37,6 +37,8 @@ localhost: 9000
 The htmloverlay-default-layout.json i located in your homefolder, and can be edited. Changes can be seen live either in CCG or in a browser using "http://localhost:3000/?output=xx"
 The file will be crerated with defualt layout at first run.
 
+Other layout examples are places in the "examples" folder
+
 ### Settings Format
 The htmloverlay-settings.json file has this structure, and a default is created at first run.
 * layoutFileList: List of layout files to be used, these can be recalled from Ember
