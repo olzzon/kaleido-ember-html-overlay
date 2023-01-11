@@ -17,14 +17,14 @@ const clockStyling = (
     width: element.width || 100,
     height: element.height || 50,
     color: element.color || "white",
-    fontSize: element.fontSizePercentage || 100,
+    fontSize: element.fontSize || "100%",
     backgroundColor: backgroundColor,
     fontFamily: globalSettings.fontFamily,
     border:
       "solid " +
-      globalSettings.borderWidth +
+      element.borderWidth || "0px" +
       " " +
-      (tally ? tallyColor : "grey"),
+      (tally ? tallyColor : element.borderColor || "grey"),
     borderRadius: globalSettings.borderRadius,
     boxShadow: "none",
   };

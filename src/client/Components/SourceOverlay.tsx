@@ -19,9 +19,9 @@ const windowStyling = (
     height: source.height,
     border:
       "solid " +
-      globalSettings.borderWidth +
+      source.borderWidth +
       " " +
-      (tally ? tallyColor : "grey"),
+      (tally ? tallyColor : source.borderColor || "grey"),
     borderRadius: globalSettings.borderRadius,
     boxShadow: "none",
     color: "red",

@@ -5,37 +5,34 @@ const defaultKaleidoOutputs = (): IOutput[] => {
     {
       globalSettings: {
         fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        borderWidth: "2px",
         borderRadius: "5px",
+
       },
-      outputName: "Kaleido 1",
+      outputName: "Output 1",
       selectedLayout: 0,
     },
     {
       globalSettings: {
         fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        borderWidth: "2px",
         borderRadius: "5px",
       },
-      outputName: "Kaleido 2",
+      outputName: "Output 2",
       selectedLayout: 0,
     },
     {
       globalSettings: {
         fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        borderWidth: "2px",
         borderRadius: "5px",
       },
-      outputName: "Kaleido 3",
+      outputName: "Output 3",
       selectedLayout: 0,
     },
     {
       globalSettings: {
         fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
-        borderWidth: "2px",
         borderRadius: "5px",
       },
-      outputName: "Kaleido 4",
+      outputName: "Output 4",
       selectedLayout: 0,
     },
   ];

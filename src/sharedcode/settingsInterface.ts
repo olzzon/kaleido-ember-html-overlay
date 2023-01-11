@@ -11,9 +11,6 @@ export interface IOutput {
 
 export interface IGlobalSettings {
   fontFamily: string // '"Helvetica Neue", Helvetica, Arial, sans-serif'
-  borderWidth: string // "1px solid "
   borderRadius: string // "2px"
 }
-
-
 

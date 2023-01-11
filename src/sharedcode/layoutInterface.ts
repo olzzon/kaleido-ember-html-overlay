@@ -14,6 +14,8 @@ export interface ISource {
   width: number;
   height: number;
   tallyColors: string[];
+  borderWidth?: string;
+  borderColor?: string;
 }
 
 export interface ISourceElement {
@@ -25,9 +27,11 @@ export interface ISourceElement {
   positionY: number;
   width: number;
   height: number;
-  fontSizePercentage?: number;
+  fontSize?: string;
   color?: string;
   backgroundColor?: string;
+  borderWidth?: string;
+  borderColor?: string;
 }
 
 

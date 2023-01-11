@@ -12,7 +12,7 @@ export const defaultLayout: IKaleidoLayout = {
           positionX: 10,
           positionY: 100,
           color: "#ffffff",
-          fontSizePercentage: 105,
+          fontSize: "105%",
           backgroundColor: "#000000aa",
         },
         {
@@ -23,6 +23,7 @@ export const defaultLayout: IKaleidoLayout = {
           positionY: 490,
           color: "#ffffff",
           backgroundColor: "#000000aa",
+          borderColor: "#ffffffff" // invisible because of full alpha
         },
         {
           labelIndex: 1,

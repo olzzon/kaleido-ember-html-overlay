@@ -33,6 +33,12 @@ The htmloverlay-settings.json file has this structure, and a default is created 
 * layoutFileList: List of layout files to be used, these can be recalled from Ember
 * kaleidoOutputs: List of kaleido outputs, each output can have a different layout, and different global settings.
 
+When referencing files in Windows remember to use double backslash, like this:
+```
+"C:\\Users\\ccg\\htmloverlay-tricasterA.json"
+```
+
+#### The filestructure is as follows:
 ```
 {
     "layoutFileList": ["/Users/myuser/htmloverlay-layout1.json","/Users/myuser/htmloverlay-layout2.json"],
