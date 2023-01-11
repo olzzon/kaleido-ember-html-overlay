@@ -22,7 +22,7 @@ const clockStyling = (
     fontFamily: globalSettings.fontFamily,
     border:
       "solid " +
-      element.borderWidth || "0px" +
+      ( element.borderWidth || "0px") +
       " " +
       (tally ? tallyColor : element.borderColor || "grey"),
     borderRadius: globalSettings.borderRadius,
