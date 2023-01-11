@@ -53,6 +53,7 @@ export const defaultLayout: IKaleidoLayout = {
           color: "#ff0000",
           backgroundColor: "transparent",
           tallyIndex: 1,
+          borderOnlyTally: true,
         },
       ],
       emberStateIndex: 0,

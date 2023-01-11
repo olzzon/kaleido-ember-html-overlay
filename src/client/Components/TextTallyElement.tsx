@@ -9,7 +9,7 @@ const labelStyling = (
   tallyColor: string
 ): React.CSSProperties => {
   const tally = element.tallyIndex >= 0 ? tallyValue : false;
-  const backgroundColor = tally ? tallyColor : element.backgroundColor;
+  const backgroundColor = tally && !element.borderOnlyTally ? tallyColor : element.backgroundColor;
   return {
     position: "absolute",
     top: element.positionY || 30,
@@ -22,7 +22,7 @@ const labelStyling = (
     fontFamily: globalSettings.fontFamily,
     border:
       "solid " +
-      element.borderWidth || "0px" +
+      (element.borderWidth || "0px") +
       " " +
       (tally ? tallyColor : element.borderColor || "grey"),
     borderRadius: globalSettings.borderRadius,

@@ -21,6 +21,7 @@ export interface ISource {
 export interface ISourceElement {
   labelIndex?: number;
   tallyIndex?: number;
+  borderOnlyTally?: boolean;
   clockTimeZone?: string;
   clockFormat?: string;
   positionX: number;
