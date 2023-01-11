@@ -1,0 +1,983 @@
+{
+    "sources": [
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 24,
+                    "width": 320,
+                    "positionX": 210,
+                    "positionY": 512,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 24,
+                    "width": 130,
+                    "positionX": 650,
+                    "positionY": 512,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+                },
+                {
+                    "height": 508,
+                    "width": 910,
+                    "positionX": 22,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#222222",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 0,
+            "positionX": 1,
+            "positionY": 2,
+            "width": 951,
+            "height": 532,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 24,
+                    "width": 320,
+                    "positionX": 210,
+                    "positionY": 512,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 24,
+                    "width": 130,
+                    "positionX": 650,
+                    "positionY": 512,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+                },
+                {
+                    "height": 508,
+                    "width": 910,
+                    "positionX": 22,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#222222",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 1,
+            "positionX": 961,
+            "positionY": 2,
+            "width": 951,
+            "height": 532,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 2,
+            "positionX": 22,
+            "positionY": 541,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 3,
+            "positionX": 332,
+            "positionY": 541,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 4,
+            "positionX": 662,
+            "positionY": 541,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 5,
+            "positionX": 992,
+            "positionY": 541,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 6,
+            "positionX": 1302,
+            "positionY": 541,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 7,
+            "positionX": 1622,
+            "positionY": 541,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 8,
+            "positionX": 22,
+            "positionY": 721,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 9,
+            "positionX": 332,
+            "positionY": 721,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 10,
+            "positionX": 662,
+            "positionY": 721,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 11,
+            "positionX": 992,
+            "positionY": 721,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 12,
+            "positionX": 1302,
+            "positionY": 721,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 13,
+            "positionX": 1622,
+            "positionY": 721,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 14,
+            "positionX": 22,
+            "positionY": 901,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 15,
+            "positionX": 332,
+            "positionY": 901,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 16,
+            "positionX": 662,
+            "positionY": 901,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 17,
+            "positionX": 992,
+            "positionY": 901,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 19,
+            "positionX": 1302,
+            "positionY": 901,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        },
+        {
+            "sourceElements": [
+                {
+                    "labelIndex": 0,
+                    "height": 20,
+                    "width": 180,
+                    "positionX": 40,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%"
+                },
+                {
+                    "labelIndex": 1,
+                    "height": 18,
+                    "width": 80,
+                    "positionX": 140,
+                    "positionY": 158,
+                    "color": "#ffffff",
+                    "backgroundColor": "#000000",
+                    "fontSize": "75%",
+                    "tallyIndex": 1
+
+                },
+                {
+                    "height": 148,
+                    "width": 269,
+                    "positionX": 2,
+                    "positionY": 1,
+                    "color": "#ff0000",
+                    "backgroundColor": "transparent",
+                    "tallyIndex": 0,
+                    "borderColor": "#000000",
+                    "borderWidth": "2px",
+                    "borderOnlyTally": true
+                }
+            ],
+            "emberStateIndex": 20,
+            "positionX": 1622,
+            "positionY": 901,
+            "width": 272,
+            "height": 163,
+            "tallyColors": [
+                "red",
+                "green",
+                "blue",
+                "yellow"
+            ]
+        }
+
+    ]
+}
