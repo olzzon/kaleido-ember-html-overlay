@@ -61,6 +61,8 @@ export const defaultLayout: IKaleidoLayout = {
       positionY: 2,
       width: 952,
       height: 532,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -109,6 +111,8 @@ export const defaultLayout: IKaleidoLayout = {
       positionY: 2,
       width: 952,
       height: 532,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -157,6 +161,8 @@ export const defaultLayout: IKaleidoLayout = {
       positionY: 542,
       width: 472,
       height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -205,6 +211,8 @@ export const defaultLayout: IKaleidoLayout = {
       positionY: 542,
       width: 472,
       height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -253,6 +261,8 @@ export const defaultLayout: IKaleidoLayout = {
       positionY: 542,
       width: 472,
       height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -301,6 +311,8 @@ export const defaultLayout: IKaleidoLayout = {
       positionY: 542,
       width: 472,
       height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -348,7 +360,9 @@ export const defaultLayout: IKaleidoLayout = {
       positionX: 1,
       positionY: 811,
       width: 472,
-      height: 263,
+      height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -396,7 +410,9 @@ export const defaultLayout: IKaleidoLayout = {
       positionX: 480,
       positionY: 811,
       width: 472,
-      height: 263,
+      height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -444,7 +460,9 @@ export const defaultLayout: IKaleidoLayout = {
       positionX: 960,
       positionY: 811,
       width: 472,
-      height: 263,
+      height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
     {
@@ -492,7 +510,9 @@ export const defaultLayout: IKaleidoLayout = {
       positionX: 1440,
       positionY: 811,
       width: 472,
-      height: 263,
+      height: 264,
+      borderColor: "#111111",
+      borderWidth: "2px",
       tallyColors: ["red", "green", "blue", "yellow"],
     },
   ],
