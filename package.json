@@ -1,6 +1,6 @@
 {
   "name": "kaleido-ember",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "HTML Kaleido overlay with control from E.G. VSM via Ember protocol",
   "main": "src/server/index.ts",
   "author": "olzzon <github@olzzon.dk>",
