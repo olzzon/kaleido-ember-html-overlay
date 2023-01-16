@@ -115,7 +115,7 @@ const addEmptyOutputsEmberState = (settings: ISettings, state: IEmberState): IEm
   // Insert existing outputs:
   state.kaleidoOutputsState.forEach((outputState, index) => {
     if (outputState.labelAndTallyState.length <= defaultLabelAndTallyState.length) {
-      data.kaleidoOutputsState[index].labelAndTallyState = defaultLabelAndTallyState;
+      data.kaleidoOutputsState[index] = outputState;
     }
   });
 
