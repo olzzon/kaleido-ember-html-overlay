@@ -11,13 +11,14 @@ import {
   ILabelAndTallyState,
 } from "../../sharedcode/stateInterface";
 
-import { defaultLayout } from "./defaultLayout";
+import { DEFAULT_LAYOUT } from "./defaultLayout";
 import { defaultSettings } from "./defaultSettings";
+import { convertLayoutFileToSourceLayout } from "./convertFileToKaleidoLayout";
 
 const homeDir = os.homedir();
 const SETTINGS_FILE = path.join(homeDir, "htmloverlay-settings.json");
 const EMBER_STATE_FILE = path.join(homeDir, "htmloverlay-ember-state.json");
-const DEFAULT_LAYOUT = path.join(homeDir, "htmloverlay-default-layout.json");
+const DEFAULT_LAYOUT_FILE = path.join(homeDir, "htmloverlay-default-layout.json");
 
 export const getSettings = (): ISettings => {
   try {
@@ -39,21 +40,21 @@ export const getLayouts = (settings: ISettings): IKaleidoLayouts => {
   let layouts: IKaleidoLayout[] = [];
   try {
     layouts.push(
-      JSON.parse(fs.readFileSync(DEFAULT_LAYOUT, "utf8"))
+      convertLayoutFileToSourceLayout(JSON.parse(fs.readFileSync(DEFAULT_LAYOUT_FILE, "utf8")))
     );
   } catch (e) {
     console.log("Error reading default layout", e);
     saveDefaultLayout();
-    layouts.push(defaultLayout);
+    layouts.push(convertLayoutFileToSourceLayout(DEFAULT_LAYOUT));
   }
   if (settings.layoutFileList) {
     settings.layoutFileList.forEach((layoutFile) => {
       try {
-        const file = JSON.parse(
+        const layout = JSON.parse(
           fs.readFileSync(layoutFile, "utf8")
         ) as IKaleidoLayout;
-        if (file) {
-          layouts.push(file);
+        if (layout) {
+          layouts.push(convertLayoutFileToSourceLayout(layout));
         }
       } catch (e) {
         console.log("Error reading layout file", e);
@@ -61,13 +62,13 @@ export const getLayouts = (settings: ISettings): IKaleidoLayouts => {
     });
     return {kaleidoLayouts: layouts}
   } else {
-    return {kaleidoLayouts: [defaultLayout]}
+    return {kaleidoLayouts: [convertLayoutFileToSourceLayout(DEFAULT_LAYOUT)]}
   }
 };
 
 export const saveDefaultLayout = (): void => {
   console.log("Saving default layout");
-  fs.writeFileSync(DEFAULT_LAYOUT, JSON.stringify(defaultLayout));
+  fs.writeFileSync(DEFAULT_LAYOUT_FILE, JSON.stringify(DEFAULT_LAYOUT));
 };
 
 export const getStoredEmberState = (settings: ISettings): IEmberState => {
